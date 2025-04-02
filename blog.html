@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persevex - Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Premium, clean styling */
+        :root {
+            --primary-color: #1a3b5d;
+            --primary-dark: #0f2540;
+            --secondary-color: #d4af37; /* Gold */
+            --secondary-dark: #b8960b;
+            --accent-green: #2e7d32;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --bg-color: #f8f9fa;
+            --bg-light: #ffffff;
+            --border-color: #e9ecef;
+            --premium-gradient: linear-gradient(135deg, #1a3b5d 0%, #2a5b8d 100%);
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f0b429 100%);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            margin-bottom: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .blog-hero {
+            background: var(--premium-gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .blog-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+
+        .blog-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .blog-image {
+            height: 220px;
+            background-color: #e9ecef;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        }
+
+        .blog-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-author-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .blog-date {
+            font-style: italic;
+        }
+
+        .blog-footer {
+            padding: 0 25px 25px;
+        }
+
+        /* Full Blog Post */
+        .blog-post {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 60px;
+        }
+
+        .blog-post-header {
+            position: relative;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .blog-post-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            z-index: 1;
+        }
+
+        .blog-post-title {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .blog-post-title h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .blog-post-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-post-author-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .blog-post-content {
+            padding: 40px;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .blog-post-content h3 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .blog-post-content ul {
+            margin-bottom: 30px;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 10px;
+        }
+
+        .blog-post-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        .btn-gold {
+            background-color: var(--secondary-color);
+            color: var(--primary-dark);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--secondary-dark);
+            color: var(--primary-dark);
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary-color);
+            padding: 60px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .newsletter .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 6px 0 0 6px;
+            font-size: 1rem;
+        }
+
+        .newsletter-button {
+            padding: 0 25px;
+            background-color: var(--secondary-color);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 0 6px 6px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-button:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f2540;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .blog-post-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 10;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-post-header {
+                height: 300px;
+            }
+
+            .blog-post-title {
+                padding: 20px;
+            }
+
+            .blog-post-content {
+                padding: 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 6px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-button {
+                border-radius: 6px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-hero p {
+                font-size: 1rem;
+            }
+            
+            .blog-post-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .blog-post-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LERN%2C%20GROW%2C%20SUCCEED%20%282%29%20%281%29_page-0001.jpg-8tJYml9rzCDtNuhTTkuSRujVuE4Cfy.jpeg" alt="Persevex Logo">
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+
+                </ul>
+                <button class="nav-toggle" id="navToggle">
+                    <i>☰</i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Insights & Perspectives</h1>
+            <p>Stay updated with the latest trends, insights, and expert opinions in finance, marketing, and professional development.</p>
+        </div>
+    </section>
+
+    <!-- Featured Blogs Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Articles</h2>
+                <p>Explore our collection of thought-provoking articles written by industry experts and professionals.</p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Unemployment Rate in India: A Wake-Up Call for Students</h3>
+                        <p class="blog-excerpt">India's unemployment rate has been a significant concern, especially among its youth. According to the Centre for Monitoring Indian Economy (CMIE), the unemployment rate in India stood at 7.45% in February 2025...</p>
+                        <a href="#unemployment-blog" class="read-more">Read More →</a>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <div class="blog-author-image">YR</div>
+                                <span>Yathin Reddy D</span>
+                            </div>
+                            <div class="blog-date">Mar 15, 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Meta's Transformation of the Digital Marketing Landscape</h3>
+                        <p class="blog-excerpt">Meta Platforms Inc., formerly known as Facebook, has significantly reshaped the digital marketing landscape through innovative integrations of artificial intelligence (AI) and machine learning technologies...</p>
+                        <a href="#meta-blog" class="read-more">Read More →</a>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <div class="blog-author-image">SS</div>
+                                <span>Shanmukh Shekar K C</span>
+                            </div>
+                            <div class="blog-date">Mar 10, 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Lessons Investors Can Learn From Madoff Scam</h3>
+                        <p class="blog-excerpt">Ensuring the investors' money is deposited in a third-party firm, and being wary for the fact that the returns generated by the investment advisory firm are stable even in down market...</p>
+                        <a href="#madoff-blog" class="read-more">Read More →</a>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <div class="blog-author-image">YR</div>
+                                <span>Yathin Reddy D</span>
+                            </div>
+                            <div class="blog-date">Mar 5, 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog 4 -->
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">How HR Internships Can Help Students Upskill</h3>
+                        <p class="blog-excerpt">The world of Human Resources (HR) is constantly evolving, driven by technological advances, changing work environments, and a deeper focus on employee wellbeing...</p>
+                        <a href="#hr-blog" class="read-more">Read More →</a>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <div class="blog-author-image">SS</div>
+                                <span>Shanmukh Shekar K C</span>
+                            </div>
+                            <div class="blog-date">Feb 28, 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Blog Posts -->
+    <!-- Blog 1: Unemployment Rate -->
+    <section id="unemployment-blog">
+        <div class="container">
+            <div class="blog-post">
+                <div class="blog-post-header" style="background-image: url('https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+                    <div class="blog-post-title">
+                        <h2>Unemployment Rate in India: A Wake-Up Call for Students and How Internships & Projects Can Make a Difference</h2>
+                        <div class="blog-post-meta">
+                            <div class="blog-post-author">
+                                <div class="blog-post-author-image">YR</div>
+                                <span>Yathin Reddy D</span>
+                            </div>
+                            <div class="blog-post-date">March 15, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-post-content">
+                    <p>India's unemployment rate has been a significant concern, especially among its youth. According to the Centre for Monitoring Indian Economy (CMIE), the unemployment rate in India stood at 7.45% in February 2025. This indicates a rising challenge for millions of graduates entering the workforce each year. While the competition is fierce, the key to overcoming this challenge lies in gaining internship experience and working on projects during college. These activities are essential for developing job-ready skills and making students more attractive to employers.</p>
+
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Unemployed youth looking for jobs" class="blog-post-image">
+
+                    <h3>The Growing Unemployment Crisis in India</h3>
+                    <p>The unemployment rate in India has been fluctuating, but youth unemployment remains a significant problem. According to the Labour Force Survey (LFS), young people (ages 15-29) face much higher unemployment rates than the national average. One of the main reasons for this is the growing mismatch between the skills taught in colleges and the skills employers seek.</p>
+                    
+                    <p>Many students graduate without the practical knowledge and industry experience required by today's employers. Furthermore, automation and the rise of emerging technologies are transforming industries, reducing demand for traditional roles while increasing the need for skills in data analysis, cloud computing, AI, digital marketing and Finance. Students who do not adapt to these changes face increased competition in a shrinking job market.</p>
+
+                    <h3>How Can Students Prepare for the Job Market?</h3>
+                    <p>Given the high unemployment rate, students must take proactive steps during their college years to improve their employability. One of the best ways to stand out in a crowded job market is through internships and personal projects, which offer practical experience and help students build industry-specific skills that are in high demand.</p>
+
+                    <h3>1. Internships: Gaining Real-World Experience</h3>
+                    <p>Internships are an invaluable opportunity for students to gain hands-on experience and develop job-ready skills in a real-world setting. Internships allow students to apply theoretical knowledge, gain industry exposure, and network with professionals in their chosen fields.</p>
+
+                    <p>In a significant policy shift, the University Grants Commission (UGC) has made internships mandatory for undergraduate students. This decision aligns with the National Education Policy (NEP) 2020, which emphasizes the importance of practical training, research, and internships in undergraduate education.</p>
+
+                    <p>Under the new UGC guidelines, students are required to complete 8-10 weeks of internships, which amount to 450 hours of work. These internships will be worth 10 credits and are designed to:</p>
+                    <ul>
+                        <li>Increase employability by providing relevant work experience.</li>
+                        <li>Develop research skills and practical knowledge in the chosen field.</li>
+                        <li>Catalyze a transdisciplinary research culture by encouraging collaboration across academic disciplines.</li>
+                    </ul>
+
+                    <p>This initiative is a step forward in ensuring that students gain the experience necessary to be competitive in the job market. Similar policies are being implemented across other sectors, such as law and medicine, where internships are also mandatory.</p>
+
+                    <h3>2. Projects: Building a Strong Portfolio</h3>
+                    <p>Along with internships, students should focus on developing a portfolio of projects that demonstrate their technical and soft skills. Projects provide students with an opportunity to apply what they've learned in real-world situations, offering employers a tangible demonstration of their capabilities.</p>
+
+                    <p>For instance, engineering students can develop software applications, work on machine learning projects, or explore AI-based solutions. For finance students, working on projects like financial forecasting, business valuation, or investment portfolio management allows them to apply classroom theories to real-world business problems. Students in digital marketing can undertake projects involving SEO optimization, Google Ads campaigns, or content strategy development. For HR students, projects related to employee satisfaction surveys, HR policy development, or talent management frameworks can be valuable additions to their portfolios.</p>
+
+                    <p>By taking on such projects, students can develop a professional portfolio that showcases their hands-on skills, initiative, and creativity. This portfolio can be shared during job interviews or included in a resume to attract the attention of potential employers.</p>
+
+                    <h3>3. Skills Development: Staying Ahead of the Curve</h3>
+                    <p>In today's fast-evolving job market, simply having a degree is no longer enough. To remain competitive, students must continually develop job-specific skills and soft skills that align with industry trends.</p>
+
+                    <p>Technical Skills: As industries become increasingly digitally driven, students must develop skills in areas like coding, data science, cloud computing, and digital marketing. These skills are essential in fields such as technology, business, and engineering. For instance, students pursuing a career in software development should focus on gaining proficiency in programming languages like Python, Java, or JavaScript. Students in digital marketing should understand SEO, content marketing, and social media strategy. For finance students, it's essential to master skills like financial analysis, modeling, risk management, and proficiency with tools like Excel, Bloomberg, and QuickBooks.</p>
+
+                    <p>Soft Skills: In addition to technical knowledge, employers seek candidates who possess strong soft skills, such as communication, leadership, problem-solving, and teamwork. These skills are essential in any role, as they help students collaborate effectively in work environments and navigate complex challenges. Engaging in group projects, leadership roles, and volunteer work can help students develop these skills and increase their overall employability.</p>
+
+                    <h3>Conclusion: Preparing for the Future</h3>
+                    <p>The high unemployment rate in India may present a challenge, but students can take steps to enhance their job prospects. The UGC's decision to make internships mandatory for undergraduate students is a significant step forward in ensuring that students gain valuable work experience and develop the practical skills required by today's employers.</p>
+
+                    <p>By engaging in internships, building a portfolio of projects, and continuously developing job-ready skills, students will be better positioned to enter the job market and secure fulfilling careers. In today's rapidly changing world, proactive and adaptable students will have the greatest chances of success in the workforce.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog 2: Meta's Transformation -->
+    <section id="meta-blog">
+        <div class="container">
+            <div class="blog-post">
+                <div class="blog-post-header" style="background-image: url('https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+                    <div class="blog-post-title">
+                        <h2>Meta's Transformation of the Digital Marketing Landscape</h2>
+                        <div class="blog-post-meta">
+                            <div class="blog-post-author">
+                                <div class="blog-post-author-image">SS</div>
+                                <span>Shanmukh Shekar K C</span>
+                            </div>
+                            <div class="blog-post-date">March 10, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-post-content">
+                    <p>Meta Platforms Inc., formerly known as Facebook, has significantly reshaped the digital marketing landscape through innovative integrations of artificial intelligence (AI) and machine learning technologies. These advancements have not only enhanced user engagement but also provided advertisers with sophisticated tools to optimize their campaigns.</p>
+
+                    <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Meta AI-driven marketing" class="blog-post-image">
+
+                    <h3>AI-Driven Advertising Innovations</h3>
+                    <p>Meta's commitment to AI has led to the development of advanced advertising solutions. The company has implemented innovative machine learning models that combine human expertise with AI capabilities, enhancing ad targeting and personalization. These models analyze vast amounts of user data to deliver relevant advertisements, improving engagement rates and return on investment for advertisers.</p>
+
+                    <h3>Generative AI in Content Creation</h3>
+                    <p>Expanding the creative possibilities for advertisers, Meta has incorporated generative AI across its platforms. This technology enables the creation of diverse content, from text to 3D environments, streamlining the content development process and allowing for more personalized user experiences. For instance, AI-driven tools can transform static images into dynamic videos, enhancing visual appeal and user interaction.</p>
+
+                    <h3>Integration of AI in Ad Management</h3>
+                    <p>Meta's Ads Manager has been enhanced with AI capabilities, simplifying campaign management for advertisers. The platform offers tools that assist in automating ad placements, optimizing budgets, and analyzing performance metrics. This integration allows advertisers to make data-driven decisions, improving the efficiency and effectiveness of their marketing strategies.</p>
+
+                    <h3>Advancements in User Representation Modeling</h3>
+                    <p>Addressing the complexities of personalized advertising, Meta has developed the Scaling User Modeling (SUM) framework. This system facilitates efficient sharing of user representations across multiple ad models, enhancing the relevance of advertisements and improving user engagement. The SUM framework processes extensive user data to tailor ad experiences, contributing to higher conversion rates.</p>
+
+                    <h3>Financial Impact and Future Outlook</h3>
+                    <p>The integration of AI into Meta's advertising solutions has yielded significant financial results. In the third quarter, the company reported a 35% increase in profits, driven by robust advertising revenue and AI advancements. However, Meta anticipates higher infrastructure spending in the coming year to support ongoing AI development, indicating a continued commitment to enhancing its digital marketing capabilities.</p>
+
+                    <h3>Conclusion</h3>
+                    <p>Meta's strategic integration of AI and machine learning into its advertising platforms has revolutionized digital marketing. By offering advanced tools for ad targeting, content creation, and campaign management, Meta empowers advertisers to deliver personalized and engaging experiences. As the company continues to innovate, the digital marketing landscape is poised for further transformation, with AI at the forefront of this evolution.</p>
+
+                    <p><a href="https://www.businessinsider.com/matt-steiner-meta-ads-ai-power-list-2024?utm_source=chatgpt.com" target="_blank" class="read-more">Source: Business Insider</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog 3: Madoff Scam -->
+    <section id="madoff-blog">
+        <div class="container">
+            <div class="blog-post">
+                <div class="blog-post-header" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+                    <div class="blog-post-title">
+                        <h2>Lessons Investors Can Learn From Madoff Scam</h2>
+                        <div class="blog-post-meta">
+                            <div class="blog-post-author">
+                                <div class="blog-post-author-image">YR</div>
+                                <span>Yathin Reddy D</span>
+                            </div>
+                            <div class="blog-post-date">March 5, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-post-content">
+                    <p>The Bernie Madoff scandal remains one of the largest financial frauds in history, with important lessons for investors of all levels. Here are key takeaways to protect yourself from similar investment scams.</p>
+
+                    <img src="https://images.unsplash.com/photo-1607944024060-0450380ddd33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Financial fraud concept" class="blog-post-image">
+
+                    <h3>Key Lessons from the Madoff Scandal</h3>
+                    <ol>
+                        <li><strong>Third-Party Custody is Essential</strong>: Ensuring the investors' money is deposited in a third-party firm, and being wary for the fact that the returns generated by the investment advisory firm are stable even in down market, are the two biggest aspects to look for.</li>
+                        
+                        <li><strong>Verify Fund Custody</strong>: It is the job of the investor/consumer to check whether the financial advisor uses a trusted third-party firm to hold the funds received from individual investors, so that the financial advisor cannot misuse the funds for his own lifestyle. By using these two-factor authentication, the customers are aware when their funds are removed from the account.</li>
+                        
+                        <li><strong>Be Suspicious of Guaranteed Returns</strong>: Investment returns that are guaranteed by the financial advisor upfront are another red flag. Because if the financial advisor can give stable returns consistently on the investor's money even in the bear market, which is quite impossible to achieve. The returns might be 5 percent or 10 percent, it is considered as a red flag because if the money is invested elsewhere other than the UST (government bonds), the returns generated must have some degree of variance.</li>
+                        
+                        <li><strong>Check Advisor Credentials</strong>: The consumers/investors can check the investment adviser public disclosure website, which is operated by the SEC and the financial industry regulatory authority's resource that lists the registered brokers, if a person name is listed in either of the list means that the person is licensed or registered with a firm, this fact means they have met minimum level of credentials and have certain experience in the industry they are dealing with.</li>
+                        
+                        <li><strong>Research Complaints</strong>: The investors can check the regulatory website to see whether any complaints are raised against the advisor, if there are one or two complaints against the advisor or the firm entrusted to carry out the investments then, it is better to run.</li>
+                        
+                        <li><strong>Watch for Unrealistic Performance</strong>: Hyper-trading activity is not considered a red flag if the investors/consumers' funds that are managed by the advisor lose money in the bear market, it is considered a red flag if the portfolio managed by the advisor performs below the stock market index, or the bond benchmark regardless of the economic situation.</li>
+                        
+                        <li><strong>Communication Red Flags</strong>: Unsatisfactory or prolonged duration taken to respond to customer queries is another red flag, and if the advisory firm asks to talk through the company's email other than the regular advisory channels then it should raise suspicious.</li>
+                        
+                        <li><strong>Beware of Pyramid Schemes</strong>: Beware of top-earning recruiters, one of the tactics the scammers use in recruiting new investors is with the help of others who have benefited from the scheme (pyramid scheme), the recruiters without realizing that they are in a pyramid scheme give testimonials of their high returns to other investors and urge them to invest in the fund managed by a said financial advisor.</li>
+                        
+                        <li><strong>Understand Your Investments</strong>: If you do not understand how the money is being invested in order to gain returns, do not invest in such funds, especially in the Madoff case, the investors had no idea how Madoff was generating double-digit returns year after year. When Madoff was confronted against the same, he had no answer, he made sure that his investment strategies are so unique that it is kept as a secret. Furthermore, avoid placing all your money in a single basket especially if the funds are managed by a single advisor. It is better if you diversify your portfolio in order to minimize the risk associated with investing. It is better of investing in stock index funds which generates low returns but better suits the investors that have zero knowledge regarding investing.</li>
+                        
+                        <li><strong>Ask Questions</strong>: The information asymmetry, which was clear in the case of Madoff scam was the main reason that led Madoff to prolong the duration of the scam since the investors were borne from asking questions about the investment strategies, hence, we can say that if the investor is discouraged from asking questions, then that might be a red flag.</li>
+                    </ol>
+
+                    <p>Even though the SEC made considerable regulatory changes after the Madoff scam, still some crooks go under the radar, hence, it is necessary to educate the investors about the steps that they can take before investing their money in a fund, the SEC is carrying out a huge campaign to educate the investors about the regulatory norms and the red flags to look for while investing.</p>
+
+                    <h3>References:</h3>
+                    <ul>
+                        <li><a href="https://www.washingtonpost.com/business/2021/04/20/bernie-madoff-ponzi-scheme-lessons/" target="_blank" class="read-more">Washington Post: Bernie Madoff Ponzi Scheme Lessons</a></li>
+                        <li><a href="https://www.cnbc.com/2021/04/15/heres-how-investors-can-spot-the-next-bernie-madoff.html" target="_blank" class="read-more">CNBC: How Investors Can Spot the Next Bernie Madoff</a></li>
+                        <li><a href="https://www.marketwatch.com/story/lessons-from-the-bernie-madoff-ponzi-scheme-5-rules-small-investors-should-follow-11622137317" target="_blank" class="read-more">MarketWatch: 5 Rules Small Investors Should Follow</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog 4: HR Internships -->
+    <section id="hr-blog">
+        <div class="container">
+            <div class="blog-post">
+                <div class="blog-post-header" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+                    <div class="blog-post-title">
+                        <h2>How HR Internships Can Help Students Upskill and Prepare for the Evolving Job Market</h2>
+                        <div class="blog-post-meta">
+                            <div class="blog-post-author">
+                                <div class="blog-post-author-image">SS</div>
+                                <span>Shanmukh Shekar K C</span>
+                            </div>
+                            <div class="blog-post-date">February 28, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-post-content">
+                    <p>The world of Human Resources (HR) is constantly evolving, driven by technological advances, changing work environments, and a deeper focus on employee wellbeing. As these transformations unfold, HR practices are no longer limited to administrative tasks but have become more strategic, data-driven, and people-centric. This change presents an exciting opportunity for students, particularly those seeking HR internships or starting careers in human resources.</p>
+
+                    <p>If you're a student aiming to break into HR, it's important to understand these shifting practices and develop the necessary skills to thrive in an increasingly competitive job market. In this blog, we'll discuss the evolving trends in HR and how students can gain relevant experience through HR internships and other upskilling opportunities.</p>
+
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="HR professionals in meeting" class="blog-post-image">
+
+                    <h3>The Changing Role of HR</h3>
+                    <p>HR was once regarded as a back-office function focused mainly on administrative tasks such as payroll, compliance, and benefits management. Today, however, HR plays a central role in shaping company culture, driving innovation, and ensuring employee satisfaction and retention. Below are some key changes that have redefined HR:</p>
+
+                    <h3>1. The Rise of Digital Transformation in HR</h3>
+                    <p>Technology is fundamentally changing how HR operates. From AI-powered recruitment tools to advanced data analytics, HR departments are increasingly relying on tech to optimize their processes and make data-backed decisions.</p>
+                    <ul>
+                        <li><strong>AI in Recruitment:</strong> Many companies are using AI-driven platforms to streamline candidate sourcing, screening, and selection. HR internships that involve recruitment tech provide valuable hands-on experience with platforms like LinkedIn Recruiter, Greenhouse, and HireVue.</li>
+                        <li><strong>Employee Engagement Tools:</strong> With platforms like Slack and Microsoft Teams, HR departments now focus on boosting employee engagement and collaboration through digital channels, ensuring that teams remain connected no matter where they're located.</li>
+                        <li><strong>Learning Management Systems (LMS):</strong> Companies are leveraging e-learning platforms to provide employees with continuous development opportunities. Students can gain practical experience in learning and development through internships that involve managing or developing e-learning programs.</li>
+                    </ul>
+
+                    <h3>How Students Can Upskill for the HR Job Market</h3>
+                    <p>As HR continues to evolve, students need to acquire a broad set of skills that align with modern HR practices. Here are a few key areas for students to focus on to stay competitive in the job market:</p>
+
+                    <h3>1. Embrace Digital Tools and HR Technology</h3>
+                    <p>To stay ahead, students must develop familiarity with the digital tools transforming HR. During HR internships, students can:</p>
+                    <ul>
+                        <li><strong>Work with HR Software:</strong> Interns can gain hands-on experience with industry-leading HR platforms such as Workday, ADP, and BambooHR, learning how to manage recruitment, employee data, and payroll.</li>
+                        <li><strong>Learn Data Analytics:</strong> HR is becoming more data-driven, so understanding how to use data analytics tools (e.g., Excel, Tableau) will help students interpret HR metrics and enhance decision-making.</li>
+                        <li><strong>Explore AI and Automation:</strong> Students should familiarize themselves with AI-driven tools that are streamlining recruitment, employee engagement, and performance management.</li>
+                    </ul>
+
+                    <h3>Conclusion</h3>
+                    <p>As HR practices continue to evolve with technological advances and a focus on employee-centric strategies, students must adapt by gaining relevant skills and practical experience. Whether through HR internships, digital tool proficiency, soft skills development, or industry-specific certifications, students who are proactive in upskilling will be well-equipped to succeed in the ever-changing world of HR.</p>
+
+                    <p>By actively seeking opportunities to learn, grow, and gain experience, students can position themselves as valuable assets in the HR field and contribute to the transformation of the workplace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Stay updated with our latest articles, industry insights, and educational resources delivered directly to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LERN%2C%20GROW%2C%20SUCCEED%20%282%29%20%281%29_page-0001.jpg-8tJYml9rzCDtNuhTTkuSRujVuE4Cfy.jpeg" alt="Persevex Logo">
+                    </div>
+                    <p>Persevex is a premier education platform dedicated to empowering individuals with the knowledge and practical skills needed to excel in today's fast-paced business landscape. Our mission is to bridge the gap between traditional education and industry demands by offering cutting-edge learning experiences tailored to real-world challenges.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                        <li><a href="finance.html">Finance</a></li>
+                        <li><a href="human-resources.html">Human resource</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+18660128339">+91 8660128339</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#3950575f5679495c4b4a5c4f5c41175a5654"><span class="__cf_email__" data-cfemail="7a031b0e1213143a0a1f08091f0c1f0254191517">yathin@persevex.com</span>, <span class="__cf_email__" data-cfemail="3a49525b54574f51527a4a5f48495f4c5f4214595557">shanmukh@persevex.com</span></a></li>
+                        <li>Bengaluru, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Persevex Education Consultancy LLP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Current Year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                newsletterForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>

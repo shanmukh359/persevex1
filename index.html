@@ -1,0 +1,2702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persevex - Professional Finance and Marketing Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Premium, clean styling */
+        :root {
+            --primary-color: #1a3b5d;
+            --primary-dark: #0f2540;
+            --secondary-color: #f0b429;
+            --secondary-dark: #e0a61b;
+            --accent-green: #2e7d32;
+            --accent-gold: #d4af37;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --bg-color: #f8f9fa;
+            --bg-light: #ffffff;
+            --border-color: #e9ecef;
+            --internship-green: #2e7d32;
+            --premium-gradient: linear-gradient(135deg, #1a3b5d 0%, #2a5b8d 100%);
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f0b429 100%);
+            --green-gradient: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: #0f2540;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0a61b;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--premium-gradient);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Courses Section */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-trigger {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+            position: relative;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .tab-trigger.active {
+            color: var(--primary-color);
+        }
+
+        .tab-trigger:hover {
+            color: var(--primary-color);
+        }
+
+        .tab-trigger.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .course-image {
+            height: 220px;
+            background-color: #e9ecef;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .course-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .course-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .course-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .course-footer {
+            padding: 0 25px 25px;
+        }
+
+        /* Course Modules Section */
+        .modules {
+            background-color: #f1f5f9;
+            position: relative;
+        }
+
+        .modules::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .modules .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-tabs {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            gap: 10px;
+        }
+
+        .module-tabs::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .module-tabs::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .module-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .module-tab {
+            padding: 12px 25px;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+            background: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            color: var(--text-light);
+            position: relative;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .module-tab.active {
+            color: white;
+            background: var(--primary-color);
+        }
+
+        .module-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+        }
+
+        .module-content {
+            display: none;
+        }
+
+        .module-content.active {
+            display: block;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .module-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gold-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .module-title-container h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .module-title-container p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .module-list {
+            margin-top: 40px;
+        }
+
+        .module-item {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .module-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .module-item-header {
+            padding: 20px 25px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .module-item-header:hover {
+            background-color: #f0f2f5;
+        }
+
+        .module-item.active .module-item-header {
+            border-left-color: var(--accent-gold);
+            background-color: #f0f2f5;
+        }
+
+        .module-item-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .module-item-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .module-item-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .module-item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .module-item.active .module-item-content {
+            max-height: 800px;
+        }
+
+        .module-item-body {
+            padding: 25px;
+        }
+
+        .module-item-description {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .module-item-topics {
+            list-style: none;
+        }
+
+        .module-item-topics li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .module-item-topics li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .module-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Internship Section */
+        .internships {
+            background-color: white;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .internship-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .internship-subtitle {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #000;
+            letter-spacing: -0.02em;
+        }
+
+        .internship-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Square Button Design for Internship Cards */
+        .internship-card {
+            background-color: white;
+            border: 2px solid var(--accent-green);
+            border-radius: 0;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .internship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .internship-card-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .internship-card-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .internship-card-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .internship-card-button {
+            background-color: white;
+            color: var(--accent-green);
+            border: 2px solid var(--accent-green);
+            padding: 10px 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: auto;
+        }
+
+        .internship-card-button:hover {
+            background-color: var(--accent-green);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .features .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            background-color: white;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--gold-gradient);
+            color: white;
+            transform: rotateY(360deg);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Partners Section */
+        .partners {
+            background-color: #f1f5f9;
+            overflow: hidden;
+        }
+
+        .partners-marquee {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .partners-track {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .partner-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 0 20px;
+            min-width: 180px;
+            height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner-card img {
+            max-width: 100%;
+            max-height: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .testimonials .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            animation: testimonialMarquee 40s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes testimonialMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 0 20px;
+            width: 380px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--text-color);
+            line-height: 1.7;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            margin-right: 15px;
+            overflow: hidden;
+            border: 3px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .testimonial-rating {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--premium-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 59, 93, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Privacy Policy Section */
+        .privacy {
+            background-color: #f1f5f9;
+            position: relative;
+        }
+
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-color: white;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            padding: 20px 25px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #f0f2f5;
+        }
+
+        .accordion-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s;
+            color: var(--primary-color);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 800px;
+        }
+
+        .accordion-body {
+            padding: 25px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .accordion-body ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .accordion-body li {
+            margin-bottom: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--premium-gradient);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-title {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Simple Button Design */
+        .btn-simple {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-simple:hover {
+            background-color: var(--accent-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-simple.gold {
+            border-color: var(--accent-gold);
+        }
+
+        .btn-simple.gold:hover {
+            background-color: var(--accent-gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 12px 0;
+            }
+
+            .course-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .module-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .module-item-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .internship-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-tabs {
+                flex-wrap: wrap;
+            }
+
+            .module-tab {
+                flex: 1 0 50%;
+                text-align: center;
+            }
+            
+            .btn-simple {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LERN%2C%20GROW%2C%20SUCCEED%20%282%29%20%281%29_page-0001.jpg-8tJYml9rzCDtNuhTTkuSRujVuE4Cfy.jpeg" alt="Persevex Logo">
+                    <span>Persevex</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#internships">Internships</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="blog.html">Blogs</a></li>
+                </ul>
+                <button class="nav-toggle" id="navToggle">
+                    <i>☰</i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1></h1>
+            <p>At Persevex, we empower ambitious professionals with industry-focused education designed for success. Driven by innovation and excellence, we provide cutting-edge learning experiences that bridge the gap between knowledge and real-world application. Our commitment to quality learning ensures that individuals gain the skills and insights needed to thrive in today's dynamic business landscape.
+
+                Join us and transform your potential into unparalleled expertise.</p>
+            <a href="#courses" class="btn-simple gold">Explore Courses</a>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Professional Courses</h2>
+                <p>Elevate your skills with our industry-leading courses designed by experts to help you succeed in today's competitive business landscape.</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-trigger active" data-tab="finance">Finance</button>
+                <button class="tab-trigger" data-tab="marketing">Marketing</button>
+                <button class="tab-trigger" data-tab="hr">HR</button>
+            </div>
+
+            <!-- Finance Courses -->
+            <div class="tab-content active" id="finance">
+                <div class="course-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Financial Modeling & Analysis</h3>
+                            <p class="course-description">Master advanced financial modeling techniques and valuation methods.</p>
+                            <div class="course-meta">
+                                <span>4.8 ★</span>
+                                <span>1,245 students</span>
+                                <span>8 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Investment Banking Fundamentals</h3>
+                            <p class="course-description">Learn the core principles of investment banking and financial advisory.</p>
+                            <div class="course-meta">
+                                <span>4.7 ★</span>
+                                <span>887 students</span>
+                                <span>10 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Portfolio Management</h3>
+                            <p class="course-description">Develop strategies for effective portfolio construction and risk management.</p>
+                            <div class="course-meta">
+                                <span>4.6 ★</span>
+                                <span>776 students</span>
+                                <span>6 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Courses -->
+            <div class="tab-content" id="marketing">
+                <div class="course-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Digital Marketing Strategies</h3>
+                            <p class="course-description">Develop comprehensive digital marketing campaigns and analytics.</p>
+                            <div class="course-meta">
+                                <span>4.9 ★</span>
+                                <span>1,332 students</span>
+                                <span>8 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Social Media Marketing</h3>
+                            <p class="course-description">Master the art of social media strategy, content creation, and analytics.</p>
+                            <div class="course-meta">
+                                <span>4.7 ★</span>
+                                <span>876 students</span>
+                                <span>6 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Content Marketing Mastery</h3>
+                            <p class="course-description">Learn to create compelling content that drives engagement and conversions.</p>
+                            <div class="course-meta">
+                                <span>4.8 ★</span>
+                                <span>954 students</span>
+                                <span>7 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HR Courses -->
+            <div class="tab-content" id="hr">
+                <div class="course-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Human Resource Management</h3>
+                            <p class="course-description">Learn the core principles of talent acquisition, employee engagement, and organizational development.</p>
+                            <div class="course-meta">
+                                <span>4.7 ★</span>
+                                <span>1,076 students</span>
+                                <span>8 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Talent Acquisition & Retention</h3>
+                            <p class="course-description">Master strategies for recruiting top talent and building effective retention programs.</p>
+                            <div class="course-meta">
+                                <span>4.6 ★</span>
+                                <span>887 students</span>
+                                <span>6 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="course-content">
+                            <h3 class="course-title">HR Analytics & Metrics</h3>
+                            <p class="course-description">Learn to leverage data for strategic HR decision-making and workforce planning.</p>
+                            <div class="course-meta">
+                                <span>4.8 ★</span>
+                                <span>654 students</span>
+                                <span>7 weeks</span>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#modules" class="btn-simple">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Modules Section -->
+    <section id="modules" class="modules">
+        <div class="container">
+            <div class="section-title">
+                <h2>Detailed Course Modules</h2>
+                <p>Explore our comprehensive curriculum designed to provide you with practical skills and in-depth knowledge.</p>
+            </div>
+
+            <div class="module-tabs">
+                <button class="module-tab active" data-module="financial-modeling">Financial Modeling</button>
+                <button class="module-tab" data-module="digital-marketing">Digital Marketing</button>
+                <button class="module-tab" data-module="hr-management">HR Management</button>
+            </div>
+
+            <!-- Financial Modeling Modules -->
+            <div class="module-content active" id="financial-modeling-content">
+                <div class="module-header">
+                    <div class="module-icon">📊</div>
+                    <div class="module-title-container">
+                        <h3>Financial Modeling & Analysis</h3>
+                        <p>Master advanced financial modeling techniques and valuation methods</p>
+                    </div>
+                </div>
+
+                <div class="module-list">
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 1: Financial Statements & Analysis
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>5 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Learn to analyze and interpret financial statements to make informed business decisions.</p>
+                                <ul class="module-item-topics">
+                                    <li>Understanding Income Statements, Balance Sheets, and Cash Flow Statements</li>
+                                    <li>Financial Ratio Analysis and Interpretation</li>
+                                    <li>Trend Analysis and Comparative Analysis</li>
+                                    <li>Common-Size Financial Statements</li>
+                                    <li>Financial Statement Forecasting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 2: Excel for Financial Modeling
+                            </div>
+                            <div class="module-item-meta">
+                                <span>1 week</span>
+                                <span>4 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Master advanced Excel techniques essential for building robust financial models.</p>
+                                <ul class="module-item-topics">
+                                    <li>Advanced Excel Functions (VLOOKUP, INDEX-MATCH, OFFSET)</li>
+                                    <li>Data Tables and Scenario Analysis</li>
+                                    <li>Sensitivity Analysis and Goal Seek</li>
+                                    <li>Excel Shortcuts and Efficiency Techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 3: Discounted Cash Flow (DCF) Modeling
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>6 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Build comprehensive DCF models to value companies and investment opportunities.</p>
+                                <ul class="module-item-topics">
+                                    <li>Forecasting Revenue and Expenses</li>
+                                    <li>Calculating Free Cash Flows</li>
+                                    <li>Determining Discount Rates (WACC)</li>
+                                    <li>Terminal Value Calculations</li>
+                                    <li>Sensitivity Analysis and Scenario Modeling</li>
+                                    <li>Building a Complete DCF Model</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 4: M&A Modeling and LBO Analysis
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>5 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Learn to model mergers, acquisitions, and leveraged buyouts to evaluate deal structures.</p>
+                                <ul class="module-item-topics">
+                                    <li>Accretion/Dilution Analysis</li>
+                                    <li>Synergy Valuation</li>
+                                    <li>Purchase Price Allocation</li>
+                                    <li>LBO Model Structure and Returns Analysis</li>
+                                    <li>Debt Schedules and Covenant Analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 5: Advanced Valuation Techniques
+                            </div>
+                            <div class="module-item-meta">
+                                <span>1 week</span>
+                                <span>4 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Explore advanced valuation methodologies used by investment professionals.</p>
+                                <ul class="module-item-topics">
+                                    <li>Comparable Company Analysis</li>
+                                    <li>Precedent Transaction Analysis</li>
+                                    <li>Sum-of-the-Parts Valuation</li>
+                                    <li>Real Options Valuation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-cta">
+                    <a href="#" class="btn-simple gold">Enroll in This Course</a>
+                </div>
+            </div>
+
+            <!-- Digital Marketing Modules -->
+            <div class="module-content" id="digital-marketing-content">
+                <div class="module-header">
+                    <div class="module-icon">📱</div>
+                    <div class="module-title-container">
+                        <h3>Digital Marketing Strategies</h3>
+                        <p>Develop comprehensive digital marketing campaigns and analytics</p>
+                    </div>
+                </div>
+
+                <div class="module-list">
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 1: Search Engine Optimization (SEO)
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>6 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Master the fundamentals of SEO to improve website visibility and organic traffic.</p>
+                                <ul class="module-item-topics">
+                                    <li>Keyword Research and Analysis</li>
+                                    <li>On-Page SEO Optimization</li>
+                                    <li>Technical SEO Fundamentals</li>
+                                    <li>Link Building Strategies</li>
+                                    <li>Local SEO Techniques</li>
+                                    <li>SEO Analytics and Reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 2: Pay-Per-Click (PPC) Advertising
+                            </div>
+                            <div class="module-item-meta">
+                                <span>1 week</span>
+                                <span>5 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Learn to create and manage effective paid advertising campaigns across multiple platforms.</p>
+                                <ul class="module-item-topics">
+                                    <li>Google Ads Campaign Structure</li>
+                                    <li>Keyword Match Types and Bidding Strategies</li>
+                                    <li>Ad Copywriting and Testing</li>
+                                    <li>Display and Remarketing Campaigns</li>
+                                    <li>PPC Analytics and Optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 3: Social Media Marketing
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>7 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Develop strategies for effective social media marketing across multiple platforms.</p>
+                                <ul class="module-item-topics">
+                                    <li>Platform-Specific Strategies (Facebook, Instagram, LinkedIn, Twitter)</li>
+                                    <li>Content Creation and Curation</li>
+                                    <li>Community Management and Engagement</li>
+                                    <li>Social Media Advertising</li>
+                                    <li>Influencer Marketing Strategies</li>
+                                    <li>Social Media Analytics and ROI Measurement</li>
+                                    <li>Social Listening and Reputation Management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 4: Email Marketing
+                            </div>
+                            <div class="module-item-meta">
+                                <span>1 week</span>
+                                <span>4 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Master email marketing strategies to build relationships and drive conversions.</p>
+                                <ul class="module-item-topics">
+                                    <li>Building and Segmenting Email Lists</li>
+                                    <li>Email Copywriting and Design</li>
+                                    <li>Automation and Drip Campaigns</li>
+                                    <li>A/B Testing and Optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 5: Digital Analytics
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>5 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Learn to measure, analyze, and optimize digital marketing performance.</p>
+                                <ul class="module-item-topics">
+                                    <li>Google Analytics Implementation and Reporting</li>
+                                    <li>Conversion Tracking and Goal Setting</li>
+                                    <li>Attribution Modeling</li>
+                                    <li>Data Visualization and Dashboards</li>
+                                    <li>Data-Driven Decision Making</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-cta">
+                    <a href="#" class="btn-simple gold">Enroll in This Course</a>
+                </div>
+            </div>
+
+            <!-- HR Management Modules -->
+            <div class="module-content" id="hr-management-content">
+                <div class="module-header">
+                    <div class="module-icon">👥</div>
+                    <div class="module-title-container">
+                        <h3>Human Resource Management</h3>
+                        <p>Learn the core principles of talent acquisition, employee engagement, and organizational development</p>
+                    </div>
+                </div>
+
+                <div class="module-list">
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 1: Talent Acquisition
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>5 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Master strategies for attracting, recruiting, and selecting top talent.</p>
+                                <ul class="module-item-topics">
+                                    <li>Job Analysis and Competency Mapping</li>
+                                    <li>Recruitment Channels and Employer Branding</li>
+                                    <li>Interviewing Techniques and Assessment Methods</li>
+                                    <li>Candidate Experience and Onboarding</li>
+                                    <li>Recruitment Metrics and Analytics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 2: Performance Management
+                            </div>
+                            <div class="module-item-meta">
+                                <span>1 week</span>
+                                <span>4 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Develop effective performance management systems to drive employee productivity.</p>
+                                <ul class="module-item-topics">
+                                    <li>Goal Setting and KPI Development</li>
+                                    <li>Performance Review Processes</li>
+                                    <li>Feedback Techniques and Coaching</li>
+                                    <li>Performance Improvement Plans</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 3: Learning & Development
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>6 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Learn to design and implement effective training and development programs.</p>
+                                <ul class="module-item-topics">
+                                    <li>Training Needs Analysis</li>
+                                    <li>Learning Program Design and Delivery</li>
+                                    <li>E-Learning and Blended Learning Approaches</li>
+                                    <li>Measuring Training Effectiveness</li>
+                                    <li>Career Development Planning</li>
+                                    <li>Succession Planning</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 4: Compensation & Benefits
+                            </div>
+                            <div class="module-item-meta">
+                                <span>1 week</span>
+                                <span>4 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Design competitive compensation and benefits packages to attract and retain talent.</p>
+                                <ul class="module-item-topics">
+                                    <li>Salary Structure Design</li>
+                                    <li>Incentive and Bonus Programs</li>
+                                    <li>Benefits Administration</li>
+                                    <li>Total Rewards Strategy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-item">
+                        <div class="module-item-header">
+                            <div class="module-item-title">
+                                Module 5: HR Analytics
+                            </div>
+                            <div class="module-item-meta">
+                                <span>2 weeks</span>
+                                <span>5 lessons</span>
+                            </div>
+                        </div>
+                        <div class="module-item-content">
+                            <div class="module-item-body">
+                                <p class="module-item-description">Leverage data for strategic HR decision-making and workforce planning.</p>
+                                <ul class="module-item-topics">
+                                    <li>HR Metrics and KPIs</li>
+                                    <li>Workforce Analytics and Reporting</li>
+                                    <li>Predictive Analytics in HR</li>
+                                    <li>Data Visualization for HR</li>
+                                    <li>Data-Driven HR Strategy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-cta">
+                    <a href="#" class="btn-simple gold">Enroll in This Course</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Programs Section -->
+    <section id="internships" class="internships">
+        <div class="container">
+            <h2 class="internship-title">INTERNSHIP PROGRAMS</h2>
+            <h3 class="internship-subtitle">MANAGEMENT</h3>
+            
+            <div class="internship-cards">
+                <div class="internship-card">
+                    <h3 class="internship-card-title">Digital Marketing</h3>
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Digital Marketing" class="internship-card-image">
+                    <p class="internship-card-description">Gain hands-on experience in digital marketing strategies, social media management, content creation, and analytics.</p>
+                    <a href="digital-marketing.html" class="internship-card-button">Learn More</a>
+                </div>
+                
+                <div class="internship-card">
+                    <h3 class="internship-card-title">Finance</h3>
+                    <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Finance" class="internship-card-image">
+                    <p class="internship-card-description">Develop practical skills in financial analysis, modeling, investment strategies, and portfolio management.</p>
+                    <a href="finance.html" class="internship-card-button">Learn More</a>
+                </div>
+                
+                <div class="internship-card">
+                    <h3 class="internship-card-title">Human Resources</h3>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Human Resources" class="internship-card-image">
+                    <p class="internship-card-description">Learn talent acquisition, employee engagement, performance management, and HR analytics in a real-world setting.</p>
+                    <a href="human-resources.html" class="internship-card-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Persevex</h2>
+                <p>We provide a comprehensive learning experience with features designed to help you succeed in your career journey.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">★</div>
+                    <h3 class="feature-title">Industry-Leading Expertise</h3>
+                    <p>Learn from top professionals with years of experience in finance and marketing.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3 class="feature-title">Cutting-Edge Curriculum</h3>
+                    <p>Stay ahead with courses covering the latest trends and technologies in the industry.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Global Network</h3>
+                    <p>Connect with a diverse community of professionals and expand your network.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Recognized Certifications</h3>
+                    <p>Earn industry-recognized certifications to boost your resume and career prospects.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3 class="feature-title">Flexible Learning</h3>
+                    <p>Study at your own pace with lifetime access to course materials and updates.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌎</div>
+                    <h3 class="feature-title">Global Opportunities</h3>
+                    <p>Access job opportunities and partnerships with leading companies worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Industry Partners</h2>
+                <p>We collaborate with leading companies to ensure our curriculum meets industry standards and to provide exclusive opportunities for our students.</p>
+            </div>
+
+            <div class="partners-marquee">
+                <div class="partners-track">
+                    <!-- First set of logos -->
+                    <div class="partner-card">
+                        <img src="google_PNG19625.png" alt="Google">
+                    </div>
+                    <div class="partner-card">
+                        <img src="mindtree.png" alt="Mindtree">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Accenture.png" alt="Accenture">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Dell.png" alt="Dell">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Deloitte.png" alt="Deloitte">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Amazon.jpg" alt="Amazon">
+                    </div>
+                    <div class="partner-card">
+                        <img src="wipro.jpg" alt="wipro">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Harman.jpg" alt="Harman">
+                    </div>
+                    <div class="partner-card">
+                        <img src="ey.png" alt="EY">
+                    </div>
+                    <div class="partner-card">
+                        <img src="kpmg.png" alt="KPMG">
+                    </div>
+                    <div class="partner-card">
+                        <img src="PwC.png" alt="PwC">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Infosys.jpg" alt="Infosys">
+                    </div>
+                    <div class="partner-card">
+                        <img src="mindtree.png" alt="Mindtree">
+                    </div>
+                    <div class="partner-card">
+                        <img src="walmart.jpg" alt="Walmart">
+                    </div>
+                    <div class="partner-card">
+                        <img src="TCS.png" alt="TCS">
+                    </div>
+                    
+                    <!-- Duplicate set for continuous scrolling -->
+                    <div class="partner-card">
+                        <img src="kpmg.png" alt="KPMG">
+                    </div>
+                    <div class="partner-card">
+                        <img src="PwC.png" alt="PwC">
+                    </div>
+                    <div class="partner-card">
+                        <img src="ey.png" alt="EY">
+                    </div>
+                    <div class="partner-card">
+                        <img src="google_PNG19625.png" alt="Google">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Deloitte.png" alt="Deloitte">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Amazon.jpg" alt="Amazon">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Infosys.jpg" alt="Infosys">
+                    </div>
+                    <div class="partner-card">
+                        <img src="Dell.png" alt="Dell">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
+                <p>Hear from our students about how our courses have helped them advance their careers and achieve their goals.</p>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonials-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Financial Modeling course was exactly what I needed to advance my career in investment banking. The practical approach and real-world examples made complex concepts easy to understand."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John D.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>John D.</h4>
+                                <p>Investment Analyst, New York</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Digital Marketing course transformed my approach to online campaigns. I've been able to increase ROI by 45% for my clients using the strategies I learned."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Sarah M.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Sarah M.</h4>
+                                <p>Marketing Director, Chicago</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"As an HR professional looking to advance my career, the HR Analytics course provided me with the data skills I needed to make strategic workforce decisions."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Emily R.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Emily R.</h4>
+                                <p>HR Manager, Boston</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Investment Banking course gave me the edge I needed in interviews. The practical knowledge and case studies were invaluable for my career transition."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Michael T.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Michael T.</h4>
+                                <p>Investment Banking Associate, London</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 5 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Social Media Marketing course helped me build a comprehensive strategy for my business. Our engagement has increased by 200% since implementing what I learned."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Jessica L.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Jessica L.</h4>
+                                <p>Small Business Owner, Austin</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 6 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Portfolio Management course provided me with a structured approach to asset allocation and risk management. My clients have seen consistent returns even in volatile markets."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/6.jpg" alt="David K.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>David K.</h4>
+                                <p>Financial Advisor, Toronto</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 7 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Talent Acquisition course transformed our hiring process. We've reduced time-to-hire by 40% and improved quality of hires significantly."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/7.jpg" alt="Rachel P.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Rachel P.</h4>
+                                <p>Recruitment Manager, Sydney</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 8 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Content Marketing course gave me the skills to create engaging content that converts. Our blog traffic has increased by 150% and lead generation is up by 75%."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/8.jpg" alt="Thomas B.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Thomas B.</h4>
+                                <p>Content Strategist, San Francisco</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 9 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The DCF Modeling module was incredibly detailed and practical. I use the Excel templates from the course in my daily work as a financial analyst."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/9.jpg" alt="Laura M.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Laura M.</h4>
+                                <p>Financial Analyst, Singapore</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 10 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The HR Management course provided a comprehensive overview of modern HR practices. I've implemented several strategies that have improved employee satisfaction and retention."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Robert J.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Robert J.</h4>
+                                <p>HR Director, Berlin</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate first few testimonials for continuous scrolling -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Financial Modeling course was exactly what I needed to advance my career in investment banking. The practical approach and real-world examples made complex concepts easy to understand."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John D.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>John D.</h4>
+                                <p>Investment Analyst, New York</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-content">"The Digital Marketing course transformed my approach to online campaigns. I've been able to increase ROI by 45% for my clients using the strategies I learned."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Sarah M.">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Sarah M.</h4>
+                                <p>Marketing Director, Chicago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <h2>About Persevex</h2>
+                    <p>Persevex is a premier education platform dedicated to empowering individuals with the knowledge and practical skills needed to excel in today's fast-paced business landscape. Our mission is to bridge the gap between traditional education and industry demands by offering cutting-edge learning experiences tailored to real-world challenges.</p>
+                    <p>At Persevex, we prioritize hands-on learning, ensuring that our learners gain practical exposure to the latest business strategies, analytical tools, and digital innovations. Our courses are carefully crafted by industry experts, integrating insights from current market trends, financial strategies, and digital transformation techniques.</p>
+                    <p>Whether you're a professional looking to upskill, an entrepreneur aiming to navigate complex business dynamics, or a student preparing for a successful career, Persevex provides a structured and engaging learning environment. Our expert-led approach ensures that learners stay ahead in an ever-evolving global economy, equipping them with the expertise and confidence to make informed decisions and drive success.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">1,500+</div>
+                        <div>Students Enrolled</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">8+</div>
+                        <div>Expert-Led Courses</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">98%</div>
+                        <div>Satisfaction Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">10+</div>
+                        <div>Global Presence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+                <p>Have questions about our courses or need more information? Fill out the form below and our team will get back to you shortly.</p>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-simple gold">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section id="privacy" class="privacy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Privacy Policy</h2>
+                <p>We value your privacy and are committed to protecting your personal information. Learn how we collect, use, and safeguard your data.</p>
+            </div>
+
+            <div class="privacy-content">
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">Information We Collect</h3>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li><strong>Personal Information:</strong> Name, email, phone number, billing details, account credentials.</li>
+                                    <li><strong>Technical Data:</strong> IP address, browser type, device details, and website usage statistics.</li>
+                                    <li><strong>Course & Learning Data:</strong> Progress, quiz results, certifications, and feedback.</li>
+                                    <li><strong>Payment Information:</strong> Processed securely via third-party payment gateways (we do not store your details).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">How We Use Your Information</h3>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>Provide and manage our online courses.</li>
+                                    <li>Personalize your learning experience.</li>
+                                    <li>Process transactions securely.</li>
+                                    <li>Send updates, newsletters, and promotions.</li>
+                                    <li>Improve platform services and support.</li>
+                                    <li>Comply with legal obligations.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">Data Sharing & Disclosure</h3>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p>We do not sell your personal data. We may share it with:</p>
+                                <ul>
+                                    <li><strong>Service Providers:</strong> Payment processing, analytics, email communication, and course delivery.</li>
+                                    <li><strong>Legal Authorities:</strong> If required by law or legal requests.</li>
+                                    <li><strong>Business Transfers:</strong> In case of mergers or restructuring.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">Data Security</h3>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p>We implement security measures to protect your data. However, no online service is completely secure, so we encourage caution when sharing personal information.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">Your Rights & Choices</h3>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>Access, update, or delete your personal information.</li>
+                                    <li>Opt out of marketing emails.</li>
+                                    <li>Request data portability or restrictions.</li>
+                                    <li>Disable cookies via browser settings.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">Contact Us</h3>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p>If you have any questions, contact us at:</p>
+                                <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#10797e767f5060756263756675683e737f7d"><span class="__cf_email__" data-cfemail="f39a9d959cb3839681809685968bdd909c9e"><span class="__cf_email__" data-cfemail="156c74617d7c7b55657067667063706d3b767a78">yathin@persevex.com</span></span></a>, <a href="/cdn-cgi/l/email-protection#6a191f1a1a05181e2a1a0f18190f1c0f1244090507"><span class="__cf_email__" data-cfemail="e89b9d9898879a9ca8988d9a9b8d9e8d90c68b8785"><span class="__cf_email__" data-cfemail="0d7e656c63607866654d7d687f7e687b6875236e6260">shanmukh@persevex.com</span></span></a></p>
+                                <p><strong>Phone:</strong> 8660128339, 7337831778</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">Persevex</h3>
+                    <p>Elevate your career with our cutting-edge courses in financial modeling, digital marketing strategies, and human resource management.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#modules">Modules</a></li>
+                        <li><a href="#internships">Internships</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="/cdn-cgi/l/email-protection#9df4f3fbf2ddedf8efeef8ebf8e5b3fef2f0"><span class="__cf_email__" data-cfemail="afc6c1c9c0efdfcadddccad9cad781ccc0c2"><span class="__cf_email__" data-cfemail="c6bfa7b2aeafa886b6a3b4b5a3b0a3bee8a5a9ab">yathin@persevex.com</span>, <span class="__cf_email__" data-cfemail="285b404946455d434068584d5a5b4d5e4d50064b4745">shanmukh@persevex.com</span></span></a></li>
+                        <li>Bengaluru, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Persevex. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Current Year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Tab Switching
+        const tabTriggers = document.querySelectorAll('.tab-trigger');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                // Remove active class from all triggers and contents
+                tabTriggers.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked trigger and corresponding content
+                trigger.classList.add('active');
+                const tabId = trigger.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Module Tab Switching
+        const moduleTabs = document.querySelectorAll('.module-tab');
+        const moduleContents = document.querySelectorAll('.module-content');
+
+        moduleTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                moduleTabs.forEach(t => t.classList.remove('active'));
+                moduleContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const moduleId = tab.getAttribute('data-module');
+                document.getElementById(`${moduleId}-content`).classList.add('active');
+            });
+        });
+
+        // Module Item Toggle
+        const moduleItems = document.querySelectorAll('.module-item-header');
+        
+        moduleItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const moduleItem = item.parentElement;
+                moduleItem.classList.toggle('active');
+                
+                const content = item.nextElementSibling;
+                if (moduleItem.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    content.style.maxHeight = '0';
+                }
+            });
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = header.nextElementSibling;
+                
+                // Toggle active class
+                accordionItem.classList.toggle('active');
+                
+                // Toggle content height
+                if (accordionItem.classList.contains('active')) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                } else {
+                    accordionContent.style.maxHeight = '0';
+                }
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you shortly.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
